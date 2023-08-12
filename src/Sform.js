@@ -90,34 +90,11 @@ const Sform = () => {
           <div className="hamurOzellik">
             <label>
               Hamur Seç *
-              <select name="selectedHamur">
-                <option
-                  name="hamurData"
-                  typ
-                  value="Hamur"
-                  onChange={handleChange}
-                >
-                  Hamur Kalınlığı
-                </option>
-                <option
-                  name="hamurData"
-                  typ
-                  value="ince"
-                  onChange={handleChange}
-                >
-                  İnce
-                </option>
-                <option
-                  name="hamurData"
-                  typ
-                  value="orta"
-                  onChange={handleChange}
-                >
-                  Doyurucu Orta
-                </option>
-                <option name="hamurData" value="kalin" onChange={handleChange}>
-                  Süper Kalın
-                </option>
+              <select name="hamurData" onChange={handleChange}>
+                <option value="Hamur">Hamur Kalınlığı</option>
+                <option value="ince">İnce</option>
+                <option value="orta">Doyurucu Orta</option>
+                <option value="kalin">Süper Kalın</option>
               </select>
             </label>
           </div>
