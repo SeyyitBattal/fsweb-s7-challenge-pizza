@@ -48,10 +48,11 @@ const Sform = () => {
   const [isFormValid, setFormValid] = useState(false);
 
   const formSchema = Yup.object().shape({
-    // boyutData: ?
-    hamurData: Yup.string()
-      .required("Hamur boyutu seçilmeden geçilemez")
-      .oneOf(["kucuk", "orta", "buyuk"], "Lütfen hamur boyutunu seçiniz"),
+    boyutData: Yup.string(),
+    hamurData: Yup.string().oneOf(
+      ["kucuk", "orta", "buyuk"],
+      "Lütfen hamur boyutunu seçiniz"
+    ),
     malzemePepperoni: Yup.boolean(),
     malzemeSosis: Yup.boolean(),
     malzemeKanada: Yup.boolean(),
@@ -109,7 +110,7 @@ const Sform = () => {
   }, [siparisData, adet]);
 
   useEffect(() => {
-    console.log("Formda bir hata var", formErrors);
+    console.log("Form validation error state updated", formErrors);
   }, [formErrors]);
 
   return (
