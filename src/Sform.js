@@ -7,7 +7,20 @@ const Sform = () => {
   const [siparisData, setSiparisData] = useState({
     boyutData: "",
     hamurData: "",
-    malzemeData: false,
+    malzemePepperoni: false,
+    malzemeSosis: false,
+    malzemeKanada: false,
+    malzemeTavuk: false,
+    malzemeSoğan: false,
+    malzemeDomates: false,
+    malzemeMisir: false,
+    malzemeSucuk1: false,
+    malzemeJalepeno: false,
+    malzemeSarimsak: false,
+    malzemeBiber: false,
+    malzemeSucuk2: false,
+    malzemeAnanas: false,
+    malzemeKabak: false,
     notData: "",
   });
 
@@ -79,31 +92,30 @@ const Sform = () => {
               Hamur Seç *
               <select name="selectedHamur">
                 <option
-                  name="selectedHamur"
+                  name="hamurData"
+                  typ
                   value="Hamur"
                   onChange={handleChange}
                 >
                   Hamur Kalınlığı
                 </option>
                 <option
-                  name="selectedHamur"
+                  name="hamurData"
+                  typ
                   value="ince"
                   onChange={handleChange}
                 >
                   İnce
                 </option>
                 <option
-                  name="selectedHamur"
+                  name="hamurData"
+                  typ
                   value="orta"
                   onChange={handleChange}
                 >
                   Doyurucu Orta
                 </option>
-                <option
-                  name="selectedHamur"
-                  value="kalin"
-                  onChange={handleChange}
-                >
+                <option name="hamurData" value="kalin" onChange={handleChange}>
                   Süper Kalın
                 </option>
               </select>
@@ -118,8 +130,8 @@ const Sform = () => {
           <label>
             <input
               type="checkbox"
-              name="malzemeData"
-              checked={siparisData.malzemeData}
+              name="malzemePepperoni"
+              checked={siparisData.malzemePepperoni}
               onChange={handleChange}
             />{" "}
             Pepperoni
@@ -127,8 +139,8 @@ const Sform = () => {
           <label>
             <input
               type="checkbox"
-              name="malzemeData"
-              checked={siparisData.malzemeData}
+              name="malzemeSosis"
+              checked={siparisData.malzemeSosis}
               onChange={handleChange}
             />{" "}
             Sosis
@@ -136,11 +148,110 @@ const Sform = () => {
           <label>
             <input
               type="checkbox"
-              name="malzemeData"
-              checked={siparisData.malzemeData}
+              name="malzemeKanada"
+              checked={siparisData.malzemeKanada}
               onChange={handleChange}
             />{" "}
             Kanada Jambonu
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="malzemeTavuk"
+              checked={siparisData.malzemeTavuk}
+              onChange={handleChange}
+            />{" "}
+            Tavuk Izgara
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="malzemeSoğan"
+              checked={siparisData.malzemeSoğan}
+              onChange={handleChange}
+            />{" "}
+            Soğan
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="malzemeDomates"
+              checked={siparisData.malzemeDomates}
+              onChange={handleChange}
+            />{" "}
+            Domates
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="malzemeMisir"
+              checked={siparisData.malzemeMisir}
+              onChange={handleChange}
+            />{" "}
+            Mısır
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="malzemeSucuk1"
+              checked={siparisData.malzemeSucuk1}
+              onChange={handleChange}
+            />{" "}
+            Sucuk
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="malzemeJalepeno"
+              checked={siparisData.malzemeJalepeno}
+              onChange={handleChange}
+            />{" "}
+            Jalepeno
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="malzemeSarimsak"
+              checked={siparisData.malzemeSarimsak}
+              onChange={handleChange}
+            />{" "}
+            Sarımsak
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="malzemeBiber"
+              checked={siparisData.malzemeBiber}
+              onChange={handleChange}
+            />{" "}
+            Biber
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="malzemeSucuk2"
+              checked={siparisData.malzemeSucuk2}
+              onChange={handleChange}
+            />{" "}
+            Sucuk
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="malzemeAnanas"
+              checked={siparisData.malzemeAnanas}
+              onChange={handleChange}
+            />{" "}
+            Ananas
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              name="malzemeKabak"
+              checked={siparisData.malzemeKabak}
+              onChange={handleChange}
+            />{" "}
+            Kabak
           </label>
         </div>
         <div className="siparis-not">
