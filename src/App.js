@@ -2,8 +2,6 @@ import React from "react";
 // import * as Yup from "yup";
 // import { toast } from "react-toastify";
 import Sform from "./Sform";
-import Salindi from "./Salindi";
-import { useState } from "react";
 
 const App = () => {
   return (

@@ -24,6 +24,7 @@ const Sform = () => {
   const handleSiparisVer = (e) => {
     e.preventDefault();
     console.log("Sipariş verildi.", siparisData);
+    console.log("Sipariş verilirken adet: ", adet);
     // axios.post
   };
 
@@ -37,7 +38,7 @@ const Sform = () => {
 
   useEffect(() => {
     console.log("Sipariş datası değişti: ", siparisData);
-  }, [siparisData]);
+  }, [siparisData, adet]);
 
   return (
     <>
@@ -46,32 +47,63 @@ const Sform = () => {
           <div className="boyut">
             <label>Boyut Seç *</label>
             <label>
-              <input type="radio" name="boyutData" value={1} />
+              <input
+                type="radio"
+                name="boyutData"
+                value="kucuk"
+                onChange={handleChange}
+              />
               Küçük
             </label>
             <label>
-              <input type="radio" name="boyutData" value={2} />
+              <input
+                type="radio"
+                name="boyutData"
+                value="orta"
+                onChange={handleChange}
+              />
               Orta
             </label>
             <label>
-              <input type="radio" name="boyutData" value={3} />
+              <input
+                type="radio"
+                name="boyutData"
+                value="buyuk"
+                onChange={handleChange}
+              />
               Büyük
             </label>
           </div>
-          <div className="hamur">
+          <div className="hamurOzellik">
             <label>
               Hamur Seç *
               <select name="selectedHamur">
-                <option name="hamurData" value="Hamur">
+                <option
+                  name="selectedHamur"
+                  value="Hamur"
+                  onChange={handleChange}
+                >
                   Hamur Kalınlığı
                 </option>
-                <option name="hamurData" value="ince">
+                <option
+                  name="selectedHamur"
+                  value="ince"
+                  onChange={handleChange}
+                >
                   İnce
                 </option>
-                <option name="hamurData" value="orta">
+                <option
+                  name="selectedHamur"
+                  value="orta"
+                  onChange={handleChange}
+                >
                   Doyurucu Orta
                 </option>
-                <option name="hamurData" value="kalin">
+                <option
+                  name="selectedHamur"
+                  value="kalin"
+                  onChange={handleChange}
+                >
                   Süper Kalın
                 </option>
               </select>
@@ -110,109 +142,14 @@ const Sform = () => {
             />{" "}
             Kanada Jambonu
           </label>
-          <label>
-            <input
-              type="checkbox"
-              name="malzemeData"
-              checked={siparisData.malzemeData}
-              onChange={handleChange}
-            />{" "}
-            Tavuk Izgara
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              name="malzemeData"
-              checked={siparisData.malzemeData}
-              onChange={handleChange}
-            />{" "}
-            Soğan
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              name="malzemeData"
-              checked={siparisData.malzemeData}
-              onChange={handleChange}
-            />{" "}
-            Domates
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              name="malzemeData"
-              checked={siparisData.malzemeData}
-              onChange={handleChange}
-            />{" "}
-            Mısır
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              name="malzemeData"
-              checked={siparisData.malzemeData}
-              onChange={handleChange}
-            />{" "}
-            Sucuk
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              name="malzemeData"
-              checked={siparisData.malzemeData}
-              onChange={handleChange}
-            />{" "}
-            Jalepeno
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              name="malzemeData"
-              checked={siparisData.malzemeData}
-              onChange={handleChange}
-            />{" "}
-            Sarımsak
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              name="malzemeData"
-              checked={siparisData.malzemeData}
-              onChange={handleChange}
-            />{" "}
-            Biber
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              name="malzemeData"
-              checked={siparisData.malzemeData}
-              onChange={handleChange}
-            />{" "}
-            Sucuk
-          </label>
-          <label htmlFor="ananas"> Ananas</label>
-          <input
-            id="ananas"
-            type="checkbox"
-            name="malzemeData"
-            checked={siparisData.malzemeData}
-            onChange={handleChange}
-          />{" "}
-          <label htmlFor="kabak"> Kabak</label>
-          <input
-            id="kabak"
-            type="checkbox"
-            name="malzemeData"
-            checked={siparisData.malzemeData}
-            onChange={handleChange}
-          />{" "}
         </div>
         <div className="siparis-not">
           <label>Sipariş Notu</label>
           <input
             type="text"
             name="notData"
+            value={siparisData.notData}
+            onChange={handleChange}
             placeholder="Siparişinize eklemek istediğiniz not var mı?"
           />
         </div>
