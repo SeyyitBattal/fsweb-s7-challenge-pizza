@@ -1,5 +1,6 @@
-import axios from "axios";
 import React from "react";
+import * as Yup from "yup";
+import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
 
@@ -22,6 +23,50 @@ const Sform = () => {
     malzemeAnanas: false,
     malzemeKabak: false,
     notData: "",
+  });
+
+  const [formErrors, setFormErrors] = useState({
+    boyutData: "",
+    hamurData: "",
+    malzemePepperoni: "",
+    malzemeSosis: "",
+    malzemeKanada: "",
+    malzemeTavuk: "",
+    malzemeSoğan: "",
+    malzemeDomates: "",
+    malzemeMisir: "",
+    malzemeSucuk1: "",
+    malzemeJalepeno: "",
+    malzemeSarimsak: "",
+    malzemeBiber: "",
+    malzemeSucuk2: "",
+    malzemeAnanas: "",
+    malzemeKabak: "",
+    notData: "",
+  });
+
+  const [isFormValid, setFormValid] = useState(false);
+
+  const formSchema = Yup.object().shape({
+    // boyutData: ?
+    hamurData: Yup.string()
+      .required("Hamur boyutu seçilmeden geçilemez")
+      .oneOf(["kucuk", "orta", "buyuk"], "Lütfen hamur boyutunu seçiniz"),
+    malzemePepperoni: Yup.boolean(),
+    malzemeSosis: Yup.boolean(),
+    malzemeKanada: Yup.boolean(),
+    malzemeTavuk: Yup.boolean(),
+    malzemeSoğan: Yup.boolean(),
+    malzemeDomates: Yup.boolean(),
+    malzemeMisir: Yup.boolean(),
+    malzemeSucuk1: Yup.boolean(),
+    malzemeJalepeno: Yup.boolean(),
+    malzemeSarimsak: Yup.boolean(),
+    malzemeBiber: Yup.boolean(),
+    malzemeSucuk2: Yup.boolean(),
+    malzemeAnanas: Yup.boolean(),
+    malzemeKabak: Yup.boolean(),
+    notData: Yup.string(),
   });
 
   const [adet, setAdet] = useState(1);
@@ -47,11 +92,25 @@ const Sform = () => {
       ...siparisData,
       [name]: type == "checkbox" ? checked : value,
     });
+
+    Yup.reach(formSchema, name)
+      .validate(type === "checkbox" ? checked : value)
+      .then((valid) => {
+        setFormErrors({ ...formErrors, [name]: "" });
+      })
+      .catch((err) => {
+        setFormErrors({ ...formErrors, [name]: err.errors[0] });
+      });
   };
 
   useEffect(() => {
     console.log("Sipariş datası değişti: ", siparisData);
+    formSchema.isValid(siparisData).then((valid) => setFormValid(valid));
   }, [siparisData, adet]);
+
+  useEffect(() => {
+    console.log("Formda bir hata var", formErrors);
+  }, [formErrors]);
 
   return (
     <>
@@ -90,7 +149,11 @@ const Sform = () => {
           <div className="hamurOzellik">
             <label>
               Hamur Seç *
-              <select name="hamurData" onChange={handleChange}>
+              <select
+                name="hamurData"
+                onChange={handleChange}
+                invalid={formErrors.hamurData}
+              >
                 <option value="Hamur">Hamur Kalınlığı</option>
                 <option value="ince">İnce</option>
                 <option value="orta">Doyurucu Orta</option>
@@ -246,7 +309,7 @@ const Sform = () => {
       <footer>
         <div className="adet-sayaci">
           <button onClick={azalt}>-</button>
-          <p>{adet}</p>
+          <p className="adetClass">{adet}</p>
           <button onClick={arttir}>+</button>
         </div>
         <div className="siparis-toplami">

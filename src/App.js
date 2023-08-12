@@ -1,5 +1,4 @@
 import React from "react";
-// import * as Yup from "yup";
 // import { toast } from "react-toastify";
 import Sform from "./Sform";
 

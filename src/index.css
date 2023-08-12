@@ -32,6 +32,11 @@ header {
   flex-direction: column;
   border: 1px solid black;
 }
+.adetClass {
+  border: 1px solid black;
+  padding: 1rem;
+  margin: 0;
+}
 footer {
   display: flex;
 }
