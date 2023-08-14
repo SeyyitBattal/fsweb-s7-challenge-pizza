@@ -50,7 +50,7 @@ const Sform = () => {
   const formSchema = Yup.object().shape({
     boyutData: Yup.string(),
     hamurData: Yup.string().oneOf(
-      ["kucuk", "orta", "buyuk"],
+      ["ince", "orta", "kalin"],
       "Lütfen hamur boyutunu seçiniz"
     ),
     malzemePepperoni: Yup.boolean(),
@@ -107,6 +107,9 @@ const Sform = () => {
   useEffect(() => {
     console.log("Sipariş datası değişti: ", siparisData);
     formSchema.isValid(siparisData).then((valid) => setFormValid(valid));
+    ///
+
+    ///
   }, [siparisData, adet]);
 
   useEffect(() => {

@@ -16,7 +16,11 @@ const App = () => {
       <div className="except-header">
         <div className="intro">
           <p>Position Absolute Acı Pizza</p>
-          <p>Fiyat 4.9 (200)</p>
+          <div className="fiyatDivi">
+            <h1>85.50 ₺</h1>
+            <span> 4.9 (200)</span>
+          </div>
+
           <p>
             Pizza pizza pizza pizza pizza pizza pizza pizza pizza pizza pizza
             pizza pizza pizza pizza pizza pizza pizza pizza pizza pizza pizza

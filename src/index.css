@@ -38,6 +38,11 @@ header {
   gap: 10px;
   margin: 10px;
 }
+.fiyatDivi {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
 .checkbox-header {
   display: flex;
@@ -61,6 +66,7 @@ header {
 }
 footer {
   display: flex;
+  justify-content: space-between;
 }
 
 code {
