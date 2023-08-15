@@ -3,6 +3,8 @@ import * as Yup from "yup";
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
+let valueDegerleri;
+let ekMalzemeUcreti = 0;
 
 const Sform = () => {
   const [siparisData, setSiparisData] = useState({
@@ -108,7 +110,12 @@ const Sform = () => {
     console.log("Sipariş datası değişti: ", siparisData);
     formSchema.isValid(siparisData).then((valid) => setFormValid(valid));
     ///
-
+    valueDegerleri = Object.values(siparisData);
+    const trueDizisi = valueDegerleri.filter((truelar) => {
+      return truelar == true;
+    });
+    console.log("true dizisi: ", trueDizisi);
+    ekMalzemeUcreti = trueDizisi.length * 5;
     ///
   }, [siparisData, adet]);
 
@@ -320,8 +327,8 @@ const Sform = () => {
         </div>
         <div className="siparis-toplami">
           <label>Sipariş Toplamı </label>
-          <label>Seçimler </label>
-          <label>Toplam </label>
+          <label>Seçimler {ekMalzemeUcreti} ₺</label>
+          <label>Toplam {(85.5 + ekMalzemeUcreti) * adet} ₺</label>
           <button
             type="submit"
             onClick={handleSiparisVer}
