@@ -5,7 +5,8 @@ import { useEffect } from "react";
 import { useState } from "react";
 let valueDegerleri;
 let ekMalzemeUcreti = 0;
-
+let boyutUcret = 0;
+let hamurUcret = 0;
 const Sform = () => {
   const [siparisData, setSiparisData] = useState({
     boyutData: "",
@@ -93,7 +94,7 @@ const Sform = () => {
     const { name, type, value, checked } = e.target;
     setSiparisData({
       ...siparisData,
-      [name]: type == "checkbox" ? checked : value,
+      [name]: type === "checkbox" ? checked : value,
     });
 
     Yup.reach(formSchema, name)
@@ -109,14 +110,20 @@ const Sform = () => {
   useEffect(() => {
     console.log("Sipariş datası değişti: ", siparisData);
     formSchema.isValid(siparisData).then((valid) => setFormValid(valid));
-    ///
     valueDegerleri = Object.values(siparisData);
+    ///
     const trueDizisi = valueDegerleri.filter((truelar) => {
-      return truelar == true;
+      return truelar === true;
     });
     console.log("true dizisi: ", trueDizisi);
     ekMalzemeUcreti = trueDizisi.length * 5;
     ///
+    if (siparisData.boyutData === "kucuk") boyutUcret = 0;
+    else if (siparisData.boyutData === "orta") boyutUcret = 10;
+    else if (siparisData.boyutData === "buyuk") boyutUcret = 20;
+    if (siparisData.hamurData === "ince") hamurUcret = 0;
+    else if (siparisData.hamurData === "orta") hamurUcret = 10;
+    else if (siparisData.hamurData === "kalin") hamurUcret = 20;
   }, [siparisData, adet]);
 
   useEffect(() => {
@@ -328,7 +335,9 @@ const Sform = () => {
         <div className="siparis-toplami">
           <label>Sipariş Toplamı </label>
           <label>Seçimler {ekMalzemeUcreti} ₺</label>
-          <label>Toplam {(85.5 + ekMalzemeUcreti) * adet} ₺</label>
+          <label>
+            Toplam {(85.5 + boyutUcret + hamurUcret + ekMalzemeUcreti) * adet} ₺
+          </label>
           <button
             type="submit"
             onClick={handleSiparisVer}
