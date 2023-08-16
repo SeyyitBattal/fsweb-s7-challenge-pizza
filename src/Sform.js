@@ -1,6 +1,5 @@
 import React from "react";
 import * as Yup from "yup";
-import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
 let valueDegerleri;
@@ -315,14 +314,16 @@ const Sform = () => {
           </div>
         </div>
         <div className="siparis-not">
-          <label>Sipariş Notu</label>
-          <input
-            type="text"
-            name="notData"
-            value={siparisData.notData}
-            onChange={handleChange}
-            placeholder="Siparişinize eklemek istediğiniz not var mı?"
-          />
+          <label className="not-text">
+            Sipariş Notu
+            <input
+              type="text"
+              name="notData"
+              value={siparisData.notData}
+              onChange={handleChange}
+              placeholder="Siparişinize eklemek istediğiniz not var mı?"
+            />
+          </label>
         </div>
         <hr />
       </form>
@@ -334,9 +335,10 @@ const Sform = () => {
         </div>
         <div className="siparis-toplami">
           <label>Sipariş Toplamı </label>
-          <label>Seçimler {ekMalzemeUcreti} ₺</label>
+          <label>Seçimler {ekMalzemeUcreti}.00₺</label>
           <label>
-            Toplam {(85.5 + boyutUcret + hamurUcret + ekMalzemeUcreti) * adet} ₺
+            Toplam {(85.5 + boyutUcret + hamurUcret + ekMalzemeUcreti) * adet}
+            0₺
           </label>
           <button
             type="submit"

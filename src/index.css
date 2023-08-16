@@ -9,14 +9,26 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding: 1rem;
 }
 
 header {
   background-color: red;
+  margin-top: -1.4rem;
+  margin-left: -1rem;
+  margin-right: -1rem;
+
+  text-align: center;
+  color: white;
+  padding-top: 3rem;
+  padding-bottom: 1rem;
+}
+.header-links {
+  text-decoration: none;
+  color: white;
 }
 
 .except-header {
-  background-color: rgb(0, 183, 255);
   margin-left: auto;
   margin-right: auto;
   width: 40em;
@@ -29,6 +41,9 @@ header {
 .boyut {
   display: flex;
   flex-direction: column;
+}
+.malzeme-secimi {
+  margin-bottom: 7rem;
 }
 .checkboxList {
   display: flex;
@@ -58,6 +73,10 @@ header {
   display: flex;
   flex-direction: column;
   border: 1px solid black;
+  padding: 0.5rem;
+}
+.not-text {
+  display: inline;
 }
 .adetClass {
   border: 1px solid black;

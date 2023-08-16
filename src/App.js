@@ -7,10 +7,16 @@ const App = () => {
     <>
       <header>
         <h1>Teknolojik Yemekler</h1>
-        <div className="header-links">
-          <a href="#">Ana Sayfa - </a>
-          <a href="#">Seçenekler - </a>
-          <a href="#">Siparişi Oluştur</a>
+        <div>
+          <a href="#" className="header-links">
+            Ana Sayfa -
+          </a>
+          <a href="#" className="header-links">
+            Seçenekler -
+          </a>
+          <a href="#" className="header-links">
+            Siparişi Oluştur
+          </a>
         </div>
       </header>
       <div className="except-header">
